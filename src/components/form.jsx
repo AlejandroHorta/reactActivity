@@ -9,74 +9,122 @@ export default function FormVenta() {
 
   const handleSubmit = (event) => {
     event.preventDefault(); //Hace que no se ejecute el postback
-    //console.log(`Nombre: ${fullname} y su salario es: ${salary}`);
+    // console.log(`Nombre: ${fullname} y su salario es: ${salary}`);
     if (fullname !== "" && valVenta !== "" && zona !== "") {
-      //alert(`Nombre: ${fullname}, salario: ${salary}, email: ${email}`);
-      if (parseFloat(comision) === "norte") {
-        setComision(parseFloat(comision) * 0.3);
-      } else {
-        setComision("");
+      // alert(`Nombre: ${fullname}, valor venta: ${valVenta}, comision: ${comision}`);
+      switch (zona) {
+        case "norte":
+          setComision(parseFloat(valVenta * 0.3 + parseFloat(valVenta)));
+          break;
+        case "sur":
+          setComision(parseFloat(valVenta * 0.2 + parseFloat(valVenta)));
+          break;
+        case "occidente":
+          setComision(parseFloat(valVenta * 0.4 + parseFloat(valVenta)));
+          break;
+        default:
+          alert(`Debe seleccionar una zona`);
+          break;
       }
     } else {
       alert("Todos los datos son obligatorios");
     }
   };
   return (
-    <div className="container">
+    <div className="container my-5">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="fullname">Nombre Completo</label>
-        <input
-          type="text"
-          id="fullname"
-          name="fullname"
-          placeholder="Nombre Completo"
-          className="form-control"
-          onChange={(e) => setFullname(e.target.value)}
-          value={fullname}
-        />
-
-        <label htmlFor="valVenta">Valor venta</label>
-        <input
-          type="number"
-          id="valVenta"
-          name="valVenta"
-          placeholder="Ingresa el valor de la venta"
-          className="form-control"
-          onChange={(event) => setvalVenta(event.target.value)}
-          value={valVenta}
-        />
-
-        <select
-          class="form-select"
-          aria-label="Default select example"
-          onChange={(event) => setZona(event.target.value)}
-          value={setZona}
-        >
-          <option selected>Seleccione una zona</option>
-          <option value="sur">Sur</option>
-          <option value="norte">Norte</option>
-          <option value="occidente">Occidente</option>
-        </select>
-
-        <label htmlFor="comision">Comision</label>
-        <input
-          type="number"
-          id="comision"
-          name="comision"
-          readOnly
-          className="form-control"
-        />
-        <button className="btn btn-success btn-sm mt-5">Calcular</button>
-      </form>
-      <form
-        onSubmit={() => {
-          setFullname("");
-          setvalVenta("");
-          setZona("");
-          setComision("");
-        }}
-      >
-        <button className="btn btn-danger mt-2">Borrar datos</button>
+        <div className="row my-2">
+          <div class="col-sm-12 col-md-6">
+            <label htmlfor="fullname" class="col-form-label">
+              Nombre Completo
+            </label>
+          </div>
+          <div className="col-sm-12 col-md-6 mx-auto text-center">
+            <input
+              type="text"
+              id="fullname"
+              name="fullname"
+              placeholder="Nombre Completo"
+              className="form-control"
+              onChange={(e) => setFullname(e.target.value)}
+              value={fullname}
+            />
+          </div>
+        </div>
+        <div className="row my-2">
+          <div className="col-sm-12 col-md-6">
+            <label htmlFor="valVenta" className="col-form-label">
+              Valor venta
+            </label>
+          </div>
+          <div className="col-sm-12 col-md-6 mx-auto text-center">
+            <input
+              type="number"
+              id="valVenta"
+              name="valVenta"
+              placeholder="Ingresa el valor de la venta"
+              className="form-control"
+              onChange={(event) => setvalVenta(event.target.value)}
+              value={valVenta}
+            />
+          </div>
+        </div>
+        <div className="row my-2">
+          <div className="col-sm-12 col-md-6">
+            <label htmlFor="zona" className="col-form-label">
+              Zona
+            </label>
+          </div>
+          <div className="col-sm-12 col-md-6 mx-auto text-center">
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              onChange={(event) => setZona(event.target.value)}
+              value={setZona}
+            >
+              <option selected>Seleccione una zona</option>
+              <option value="norte">Norte</option>
+              <option value="sur">Sur</option>
+              <option value="occidente">Occidente</option>
+            </select>
+          </div>
+        </div>
+        <div className="row my-2">
+          <div className="col-sm-12 col-md-6">
+            <label htmlFor="comision" className="col-form-label">
+              Comision
+            </label>
+          </div>
+          <div className="col-sm-12 col-md-6 mx-auto text-center">
+            <input
+              type="number"
+              id="comision"
+              name="comision"
+              className="form-control"
+              readOnly
+              value={comision}
+            />
+          </div>
+        </div>
+        <div className="row my-2">
+          <div className="col-sm-12 col-md-6">
+            <button className="btn btn-success btn-sm my-1 w-25 col-sm-12 col-md-6">
+              Calcular
+            </button>
+          </div>
+          <div className="col-sm-12 col-md-6">
+            <form
+              onSubmit={() => {
+                setFullname("");
+                setvalVenta("");
+                setZona("");
+                setComision("");
+              }}
+            >
+              <button className="btn btn-danger mt-2 w-25">Borrar datos</button>
+            </form>
+          </div>
+        </div>
       </form>
     </div>
   );
