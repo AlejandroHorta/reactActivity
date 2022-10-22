@@ -31,12 +31,12 @@ export default function FormVenta() {
     }
   };
   return (
-    <div className="container my-5">
+    <div className="container my-5 px-5">
       <form onSubmit={handleSubmit}>
         <div className="row my-2">
           <div class="col-sm-12 col-md-6">
             <label htmlfor="fullname" class="col-form-label">
-              Nombre Completo
+              Nombre 
             </label>
           </div>
           <div className="col-sm-12 col-md-6 mx-auto text-center">
@@ -54,7 +54,7 @@ export default function FormVenta() {
         <div className="row my-2">
           <div className="col-sm-12 col-md-6">
             <label htmlFor="valVenta" className="col-form-label">
-              Valor venta
+              Valor 
             </label>
           </div>
           <div className="col-sm-12 col-md-6 mx-auto text-center">
@@ -108,7 +108,7 @@ export default function FormVenta() {
         </div>
         <div className="row my-2">
           <div className="col-sm-12 col-md-6">
-            <button className="btn btn-success btn-sm my-1 w-25 col-sm-12 col-md-6">
+            <button className="btn btn-primary btn-sm my-1 w-25 col-sm-12 col-md-6">
               Calcular
             </button>
           </div>
@@ -121,7 +121,7 @@ export default function FormVenta() {
                 setComision("");
               }}
             >
-              <button className="btn btn-danger mt-2 w-25">Borrar datos</button>
+              <button className="btn btn-primary mt-2 w-25">Borrar datos</button>
             </form>
           </div>
         </div>

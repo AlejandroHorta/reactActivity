@@ -22,12 +22,12 @@ export default function Navbar() {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                Quienes somos
+                Nosotros
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                Contactenos
+                Contacto
               </a>
             </li>
           </ul>
