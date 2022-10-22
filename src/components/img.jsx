@@ -9,12 +9,10 @@ export default function Img() {
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3N6XxVP2JSA_ypeu3BNaN_HvM20sX0Us-SQ&usqp=CAU"
         className="img-thumbnail w-25"
-        alt="..."
       />
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj_dQi7ICaHDcDKkVG6LNOYeYJdIC87T8hOQ&usqp=CAU"
         className="img-thumbnail w-25"
-        alt="..."
       />
     </div>
   );
